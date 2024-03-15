@@ -17,10 +17,10 @@ async function scrapData(webUrl) {
   const HtmlObject = dom.window.document.getElementsByClassName("ipc-title__text");
 
   //   Convert HTMLCollection to an Array
-  const Scraped_data = [];
-  Array.from(HtmlObject).forEach((list) => {
-    Scraped_data.push([list.textContent]);
+  const Scraped_data = Array.from(HtmlObject).map((list) => {
+    return [list.textContent];
   });
+  console.log(Scraped_data);
 
   //   Adding Data to excel
   let workbook = XLSX.utils.book_new();
